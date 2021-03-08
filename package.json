@@ -1,0 +1,33 @@
+{
+  "name": "testcafeneo",
+  "version": "1.0.0",
+  "description": "\"To create an end to end automation framework using js technologies\"",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome": "testcafe chrome ./testcases -s takeOnFails=true --disable-page-caching",
+    "test-report": "./node_modules/.bin/cucumber-js.cmd --format json:./reports/report.json --publish",
+    "test-chrome": "./node_modules/.bin/cucumber-js.cmd  --world-parameters \"{\\\"browser\\\": \\\"chrome\\\"}\""
+  },
+  "keywords": [
+    "e2e",
+    "javascript",
+    "web",
+    "automation"
+  ],
+  "author": "Joemon David",
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^2.2.1",
+    "testcafe": "^1.10.1",
+    "@cucumber/cucumber": "^7.0.0.rc.0",
+    "axios": "^0.21.1",
+    "base64-img": "^1.0.4",
+    "eslint": "^4.19.1",
+    "npm": "^6.0.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.3.0",
+    "eslint-config-google": "^0.9.1"
+  }
+}

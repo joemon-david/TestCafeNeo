@@ -1,0 +1,67 @@
+{
+	"ui_state": {
+		"Login_Page": {
+			"navigate_to_url": "https://vibe.mhqa.pub:8443/heartbeat/Login.action"
+		},
+		"Home_Page": {
+			"navigate_to_url": "https://vibe.mhqa.pub:8443/heartbeat/Login.action",
+			"steps": [
+				{
+					"action": "type_text",
+					"element_selector": "${user_name_text_input}",
+					"data": "${user_name}"
+				},
+
+				{
+					"action": "type_text",
+					"element_selector": "${password_text_input}",
+					"data": "${password}"
+				},
+
+				{ "action": "click", "element_selector": "${login_submit_button}" }
+			]
+		},
+		"PSR_Page": {
+			"navigate_to_url": "https://vibe.mhqa.pub:8443/heartbeat/Login.action",
+			"global_state": "login",
+			"steps": [
+				{
+					"action": "hover",
+					"element_selector": "${settings_menu}"
+				},
+				{
+					"action": "click",
+					"element_selector": "${psr_submenu}"
+				}
+			]
+		}
+	},
+	"global_state": {
+		"login": {
+			"steps": [
+				{
+					"action": "type_text",
+					"element_selector": "${user_name_text_input}",
+					"data": "${user_name}"
+				},
+
+				{
+					"action": "type_text",
+					"element_selector": "${password_text_input}",
+					"data": "${password}"
+				},
+
+				{ "action": "click", "element_selector": "${login_submit_button}" },
+				{
+					"action":"refresh_page"
+				},
+				{
+					"action": "verify_text",
+					"element_selector":"${welcome_message_text_element}",
+					"data":"${welcome_message_text_data}"
+				}
+				
+			]
+		}
+	}
+}

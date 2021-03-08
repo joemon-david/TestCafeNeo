@@ -1,0 +1,9 @@
+{
+    "page_heading":".pageTitle",
+    "source_dropdown":"#selectedSource",
+    "hospital_dropdown":"#selectedHospital",
+    "source_code_name_dropdown":"#selectedSourceCodeName",
+    "display_name_dropdown":"#selectedDisplayName",
+    "source_result_list":"#psrListTable tr.ui-widget-content td:nth-child(1) span",
+    "hospital_result_list":"#psrListTable tr.ui-widget-content td:nth-child(2) span"
+}
