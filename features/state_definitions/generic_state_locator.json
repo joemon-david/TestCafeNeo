@@ -1,0 +1,22 @@
+{
+    "ui_state":{
+        "Home_Page":{
+            "user_name_text_input":"#j_username",
+            "password_text_input":"#j_password",
+            "login_submit_button":".button.purple"
+        },
+            "PSR_Page":{
+                "settings_menu":"a.withText(Settings)",
+                "psr_submenu":"a.withText(Patient Specific Role Configuration)"
+            }
+    },
+    "global_state":{
+        "login":{
+            "user_name_text_input":"#j_username",
+            "password_text_input":"#j_password",
+            "login_submit_button":".button.purple",
+            "welcome_message_text_element":"h4 span"
+        }
+        
+    }
+}

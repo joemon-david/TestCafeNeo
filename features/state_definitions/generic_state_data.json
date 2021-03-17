@@ -1,0 +1,13 @@
+{
+	"customer_login": {
+		"user_name": "joemon1",
+		"password": "ad",
+        "welcome_message_text_data":"Joemon David"
+	},
+
+	"admin_login": {
+		"user_name": "binu1",
+		"password": "ad",
+        "welcome_message_text_data":"Binu Bhasuran"
+	}
+}
