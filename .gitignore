@@ -1,6 +1,6 @@
-node_modules
-learnings
-reports
-testcases
+node_modules/
+learnings/
+reports/
+testcases/
 sample_test.js
 sample.js

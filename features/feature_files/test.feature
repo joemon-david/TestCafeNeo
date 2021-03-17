@@ -3,7 +3,7 @@ Feature: Testing Purpose
     Feature Description
 
     Background: Load the PSR Page to execute the tests
-     Given I am on "PSR_Page" by using the data "customer_login"    
+     Given I am on "PSR_Page" by using the data "admin_login"    
     
 
     Scenario: List PSR from source 'AS'
