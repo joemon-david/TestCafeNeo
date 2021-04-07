@@ -1,0 +1,9 @@
+{
+   "config_data":{
+    "url":"${url}",
+    "method":"${method}",
+    "headers":"${headers}",
+    "data":"${data}"
+    
+ }
+}

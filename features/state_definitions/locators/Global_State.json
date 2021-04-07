@@ -1,0 +1,9 @@
+{
+    "login":{
+        "login_menu_button":"#login2",
+        "user_name_text_input":"#loginusername",
+        "password_text_input":"#loginpassword",
+        "login_submit_button":"button.withText(Log in)",
+        "welcome_message_text_element":"#nameofuser"
+    }
+}

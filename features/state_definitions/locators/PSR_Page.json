@@ -1,0 +1,4 @@
+{
+    "settings_menu":"a.withText(Settings)",
+    "psr_submenu":"a.withText(Patient Specific Role Configuration)"
+}

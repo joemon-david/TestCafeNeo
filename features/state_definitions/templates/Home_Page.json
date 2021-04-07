@@ -1,0 +1,22 @@
+{
+    "navigate_to_url": "https://www.demoblaze.com/index.html",
+    "steps": [
+        {
+            "action":"click",
+            "element_selector":"${login_menu_button}"
+        },
+        {
+            "action": "type_text",
+            "element_selector": "${user_name_text_input}",
+            "data": "${user_name}"
+        },
+
+        {
+            "action": "type_text",
+            "element_selector": "${password_text_input}",
+            "data": "${password}"
+        },
+
+        { "action": "click", "element_selector": "${login_submit_button}" }
+    ]
+}
