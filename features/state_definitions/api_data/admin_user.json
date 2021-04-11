@@ -1,0 +1,9 @@
+{
+    "url":"https://api.demoblaze.com/signup",
+    "method":"post",
+    "headers":{
+       "Content-Type":"application/json"       
+    },
+    "data":{"username":"new_user_joemon","password":"base64(new_user_joemon)"}
+    
+ }

@@ -1,0 +1,5 @@
+{
+    "monitors_link_button":"a.withText(Monitors)",
+    "ASUS_Full_HD_product_link":"a.withText(ASUS Full HD)",
+    "ASUS_Full_HD_Add_To_Cart_Button":"a.withText(Add to cart)"
+}

@@ -1,6 +1,7 @@
 const {Given,When,Then} = require ('@cucumber/cucumber');
-const { Selector } = require('../support/selector');
 const project_data = require('../data_files/project.json');
+const utils = require('../support/commonutils');
+
 
 
 
@@ -12,14 +13,19 @@ Given('I launch the {string} Application', async function (application_name) {
    });
 
    When('I enter the text {string} in the web element {string}', async function (text,identifier) {
-   await testController.typeText(identifier,text,{paste:true,replace:true});
+       let extracted_identifier = utils.extract_element_locators(identifier);
+       let sel = utils.create_selector(extracted_identifier);
+   await testController.typeText(sel,text,{paste:true,replace:true});
   });  
   When('I click on a webelement {string}', async function (identifier) {
-    await testController.click(identifier);
+    let extracted_identifier = utils.extract_element_locators(identifier);
+    let sel = utils.create_selector(extracted_identifier);    
+    await testController.click(sel);
    }); 
 
-   When('I choose the value {string} from dropdown {string}',async function(value,element){
-       const dropdown = Selector(element);
+   When('I choose the value {string} from dropdown {string}',async function(value,identifier){
+    let extracted_identifier = utils.extract_element_locators(identifier);
+    let dropdown = utils.create_selector(extracted_identifier);      
        const options = dropdown.find('option');
        await testController.click(dropdown)
        .click(options.withText(value))
@@ -27,9 +33,11 @@ Given('I launch the {string} Application', async function (application_name) {
        
    });
 
-   Then('I want to verify that list {string} contains only the value {string}',async function (element,value) {
+   Then('I want to verify that list {string} contains only the value {string}',async function (identifier,value) {
 
-    const element_list = Selector(element);
+    let extracted_identifier = utils.extract_element_locators(identifier);
+    let element_list = utils.create_selector(extracted_identifier);    
+    // const element_list = Selector(element);
     let count = await element_list.count;
     for(let i =0; i<count; i++)
     {
