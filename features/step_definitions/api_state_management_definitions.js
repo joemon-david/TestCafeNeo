@@ -4,6 +4,7 @@ const api = require("../api_support/axios_helper");
 const path = require('path');
 const cwd = process.cwd();
 const utils = require("../support/commonutils")
+const dataStore = require("../state_definitions/suite_data/DataStore")
 
 
 const api_template_path =cwd +'/features/state_definitions/api_templates';
@@ -14,7 +15,8 @@ Given('I want to fire API to {string} using {string}',async function (template,d
     const api_data = require(path.join(api_data_path,data+'.json'));
     let config_data = createAPIRequestWithData(api_template_data,api_data);
     let response = await api.sendPostRequest(config_data);
-    console.log(response);
+    // console.log(response);
+    dataStore.setValue(template+'_'+data+'_response',response)
 
 
 });
@@ -41,7 +43,7 @@ const createAPIRequestWithData = (template_object,data_object) => {
         "data":data
 
     };
-    console.log(config_data);
+    // console.log(config_data);
 
     return config_data;
 

@@ -6,12 +6,13 @@ const cwd = process.cwd();
 const template_path =cwd +'/features/state_definitions/templates';
 const locators_path = cwd +'/features/state_definitions/locators';
 const data_path = cwd +'/features/state_definitions/data';
-// const project_template = require('../state_definitions/generic_state_template.json')
-// const project_locator = require('../state_definitions/generic_state_locator.json')
-// const project_state_data = require('../state_definitions/generic_state_data.json')
+
 const project_data = require('../data_files/project.json')
 var URL = project_data.URL_DATA.MH_Cure
 const { Selector } = require('testcafe')
+
+var log4js = require("../support/Logger")
+var logger = log4js.getLogger('State Step Definition')
 
 
 
@@ -26,13 +27,13 @@ Given(
 		const data_object = require(path.join(data_path,data+'.json'));
 
 		
-		console.log('Template Data :', ui_template_data)
+		logger.debug('Template Data :', ui_template_data)
 
 		if (ui_template_data.navigate_to_url !== undefined) {
 			URL = ui_template_data.navigate_to_url;
 			await testController.navigateTo(URL)
 		} else {
-			console.log(` ${state} state doesnot have a navigate_to_url step !!! `)
+			logger.debug(` ${state} state doesnot have a navigate_to_url step !!! `)
 		}
 		// Checks whether this state have any global state included
 		if (ui_template_data.global_state !== undefined) {
@@ -50,7 +51,7 @@ Given(
 		}
 		if (ui_template_data.steps !== undefined) {					
 			const state_step_object = ui_template_data.steps
-			console.log(
+			logger.debug(
 				`state_step_object:${state_step_object}\n locator_object:${ui_locator_object} \n data_object:${data_object}`
 			)
 			await execute_state_steps(
@@ -59,7 +60,7 @@ Given(
 				data_object
 			)
 		} else {
-			console.log('!!! No steps to execute in the state ', state)
+			logger.debug('!!! No steps to execute in the state ', state)
 		}
 	}
 )
@@ -70,17 +71,17 @@ const execute_state_steps = async (
 	data_object
 ) => {
 	for (const step of state_step_object) {
-		console.log('Executing the step ', step)
+		logger.debug('Executing the step ', step)
 		const loc_variable = extract_variable_name(step.element_selector)
 		let locator = locator_object[loc_variable]
-		console.log(step.element_selector,' -> ',locator)
+		logger.debug(step.element_selector,' -> ',locator)
 		locator = create_selector(locator)
 		let test_data = ''
 		if (step.data !== undefined) {
 			const data_variable = extract_variable_name(step.data)
 			test_data = data_object[data_variable]
 		}
-		console.log('Using the Data -> ', test_data)
+		logger.debug('Using the Data -> ', test_data)
 
 		switch (step.action) {
 			case 'type_text':
